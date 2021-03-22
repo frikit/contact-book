@@ -12,6 +12,8 @@ class ContactController(
 
     private val log = LoggerFactory.getLogger(ContactController::class.java)
 
+    //TODO can add pagination if required very easy
+    //TODO would be better to do with post search by postcode but it depends on business use case so will leave GET for now
     @GetMapping("/contacts")
     fun getContacts(
         @RequestParam postcode: String?
