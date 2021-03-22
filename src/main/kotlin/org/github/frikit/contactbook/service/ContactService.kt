@@ -11,6 +11,11 @@ class ContactService(
 
     fun findAllContacts(): List<Contact> = contactRepository.findAll().filterNotNull()
 
+    //TODO update postcode if decide to make it generic
+    fun findContactByPostcode(postcode: String): List<Contact> = contactRepository
+        .findContactsByAddress_Postcode(postcode)
+        .filterNotNull()
+
     fun saveContact(contact: Contact): Contact {
         //TODO add try catch if address exist in database extract address and use it to save contact with existing address
         return contactRepository.save(contact)
